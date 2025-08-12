@@ -16,11 +16,13 @@ Further, any research making use of this software should appropriately cite the 
 ```LaTeX
 @article{Conti_2025,
     title = {Fracture Displacement Basis Function (FDBF) Method for Efficient Geomechanical Calculations of Fractured Rock},
-    volume = {},
-    doi = {},
-    journal = {International Journal of Rock Mechanics and Mining Sciences},
     author = {Giulia Conti and Stephan K. Matth\"ai and Patrick Jenny},
+    journal = {International Journal of Rock Mechanics and Mining Sciences},
+    volume = {194},
+    pages = {106219},
     year = {2025},
+    issn = {1365-1609},
+    doi = {https://doi.org/10.1016/j.ijrmms.2025.106219},
 }
 ```
 
