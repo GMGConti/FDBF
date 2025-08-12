@@ -153,13 +153,13 @@ $$
 #### Displacement- and stress fields induced by far field stress and N fractures
 
 $$
-{\bf u}\ =\ \sum\_{f=1}^N\{s_t^{f}{\hat{\bf u}}\_{slip}^{f}\+s_n^{f}{\hat{\bf u}}\_{open}^{f}\}\ +\ {\bf u}^\infty
+{\bf u}\ =\sum\_{f=1}^N (s_t^{f}\hat{\bf u}\_{slip}^{f} \+s_n^{f}\hat{\bf u}\_{open}^{f}) \ +\ {\bf u}^\infty
 $$
 
 and
 
 $$
-\sigma=\sum_{f=1}^N\{s_t^{f}{\hat{\sigma}}\_{slip}^{f}\+s_n^{f}{\hat{\sigma}}\_{open}^{f}\}\ +\ \sigma^\infty
+\sigma=\sum_\{f=1}^N (s_t^{f} \hat{\sigma}\_{slip}^{f} \+s_n^{f}\hat{\sigma}\_{open}^{f})\ +\ \sigma^\infty
 $$
 
 with far field displacement obtained from far field stress:
