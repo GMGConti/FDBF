@@ -27,11 +27,14 @@ Further, any research making use of this software should appropriately cite the 
 ## Theory
 #### Normailzed Fracture Basis Functions
 For the shear normalized basis function, solve the force balance
-$
-\frac{\partial}{\partial x_j} \hat{\sigma}_{ij}= 0
-$
-for the displacement field $\bf{u}$
-$
+
+$$
+    \frac{\partial}{\partial x_j} \hat{\sigma}_{ij}= 0
+$$
+
+for the displacement field $u$
+
+$$
 \textrm{on   }\mathbb{R}^2\textrm{ with } \\ \lim_{|\bf x|\rightarrow\infty}\hat{u}_i=0
 \ \ \ \wedge\ \ \ 
 \left(\hat{u}_1,\ \hat{u}_2\right)^T
@@ -40,38 +43,40 @@ $
 \textrm{ for }
 \left(x_1,x_2\right)^T\in\left([-0.5,0.5],\ \pm\epsilon\right)^T
 \textrm{ with }0<\epsilon\ll 1
-$
+$$
 
 assuming linear elasticity
-$
-\hat{\sigma}_{ij}\ =\ 
-\lambda\frac{\partial \hat{u}_k}{\partial x_k} \delta_{ij}
-\ +\ 
-G\left(\frac{\partial \hat{u}_j}{\partial x_i}+\frac{\partial \hat{u}_i}{\partial x_j}\right)
-$
 
-$
-\Rightarrow  \frac{\partial}{\partial x_j}\left(
-\lambda\frac{\partial \hat{u}_k}{\partial x_k} \delta_{ij}
-\ +\ 
-G\left(\frac{\partial \hat{u}_j}{\partial x_i}+\frac{\partial \hat{u}_i}{\partial x_j}\right)
-\right)
-\ =\ 0
-$
+$$
+\hat{\sigma}_{ij}=\lambda \frac{\partial \hat{u}_k}{\partial x_k} \delta\_{ij}
++G(\frac{\partial\hat{u}_j}{\partial x_i}
++\frac{\partial\hat{u}_i}{\partial x_j})
+\ \ \ 
+$$
+
+$$
+\rightarrow \frac{\partial}{\partial x_j}(\lambda\frac{\partial \hat{u}_k}{\partial x_k} \delta\_{ij}+G(\frac{\partial \hat{u}_j}{\partial x_i}+\frac{\partial \hat{u}_i}{\partial x_j}))=0
+\ \ \ 
+$$
 
 The tensile opening basis function is calculated analogously. 
 
 #### Specific Basis Functions
-$
-{\bf\hat{u}}^{f}({\bf x})\ =\ {\bf R}^{f}\ {\bf\hat{u}}({\bf G}^{f}({\bf x}-\bar{\bf x}^{f})/L^{f})
-$
 
-$
-{\bf\hat{\sigma}}^{f}({\bf x})\ =\ {\bf R}^{f}\ {\bf\hat{\sigma}}({\bf G}^{f}({\bf x}-\bar{\bf x}^{f})/L^{f})\ {\bf G}^{f}
+$$
+{\bf\hat{u}}^{f}({\bf x})
+={\bf R}^{f}{\bf\hat{u}}({\bf G}^{f}({\bf x}-\bar{\bf x}^{f})/L^{f})
+$$
+
+$$
+{\bf\hat{\sigma}}^{f}({\bf x})
+={\bf R}^{f}{\bf\hat{\sigma}}({\bf G}^{f}({\bf x}-\bar{\bf x}^{f})/L^{f}){\bf G}^{f}
 \ \ \ 
-$
+$$
+
 with
-$
+
+$$
 \ \ \ 
 \bf R^f=\left(
 \begin{array}{cc}
@@ -80,9 +85,11 @@ $
 \end{array}
 \right)
 \ \ \ 
-$
+$$
+
 and
-$
+
+$$
 \ \ \ 
 \bf G^f=\left(
 \begin{array}{cc}
@@ -90,89 +97,81 @@ $
 -\sin(\alpha^f)&\cos(\alpha^f)
 \end{array}
 \right)
-$
+$$
 
 #### Normalized traction- and normal stresses induced by fracture f on fracture g:
 
-$
-{\bf {\hat\sigma}}_{t,n}^{f\rightarrow g} = \int_{\Omega^g} {\bf \hat\sigma}_{t,n}^{f}\ dL
-\ \ \ 
-$
+$$
+{\bf\hat\sigma}\_{t,n}^{f\rightarrow g} = \int\_{\Omega^g}{\bf\hat\sigma}\_{t,n}^{f} dL
+$$
+
 and
-$
+
+$$
 \ \ \ 
-{\bf {\sigma}}_{t,n}^{\infty\rightarrow g} = \int_{\Omega^g} {\bf \sigma}_{t,n}^{\infty}\ dL
-$
+{\bf\sigma}\_{t,n}^{\infty\rightarrow g} = \int\_{\Omega^g} {\bf\sigma}\_{t,n}^{\infty} dL
+$$
 
 #### Constraints to obtain a linear system for the shear displacement dofs $s_t^f$:
 
-$
-\Rightarrow\ \ \ \forall g\in\{1,..,n\}:\ \ \ 
-\sum_{f=1}^n
-  \left\{
-  s_t^{f} 
-    \left(
-      \hat{\sigma}_t^{f\rightarrow g} + \mu^g \hat{\sigma}_n^{f\rightarrow g}
-    \right)
-  \right\}
-  \ \le\ 
-  \mu^g \left({\sigma}_n^{\infty\rightarrow g}\ -\ p^{g}L^{g}\right)\ -\ {\sigma}_t^{\infty\rightarrow g}
-  \ \ \ 
-$
-(linear system for $s_t^f$)
+$$
+\Rightarrow \forall g\in\{1,..,n\}:\ \ \
+$$
+
+$$
+\sum\_{f=1}^n (s_t^f (\hat{\sigma}_t\^{f\rightarrow g} + \mu^g \hat{\sigma}_n\^{f\rightarrow g}))
+\le
+\mu^g (\sigma_n\^{\infty\rightarrow g}\- p^g L^g ) \- \sigma_t\^{\infty\rightarrow g}
+\ \ \ 
+$$
+
+(linear system for $$s_t^f$$)
 
 #### Constraints to obtain a linear system for the dofs $s_t^f$ and $s_n^f$:
 If tensile opening is present, there are two degrees of freedom per fracture: shear displacement $s_t$, and tensile opening $s_n$ . 
 
-$
-\Rightarrow\ \ \ \forall g\in\{1,..,n\}:\ \ \ 
-$
+$$
+\Rightarrow \forall g\in\{1,..,n\}:\ \ \ 
+$$
 
-$
-\sum_{f=1}^n
-  \left\{
-  s_t^{f} \hat{\sigma}_{slip,t}^{f\rightarrow g} + s_n^{f} \hat{\sigma}_{open,t}^{f\rightarrow g}
-  \right\}\
-  =- {\sigma}_t^{\infty\rightarrow g}
-  \ \ \ 
-$
-(linear system for $s_t^f$)
+$$
+\sum\_{f=1}^n (s_t^{f} \hat{\sigma}\_{slip,t}\^{f\rightarrow g} + s_n^{f} \hat{\sigma}\_{open,t}\^{f\rightarrow g})
+\=- \sigma_t\^{\infty\rightarrow g}
+\ \ \ 
+$$
 
-$
-\sum_{f=1}^n
-  \left\{
-  s_t^{f} \hat{\sigma}_{slip,n}^{f\rightarrow g}+ s_n^{f} \hat{\sigma}_{open,n}^{f\rightarrow g}
-  \right\}
-  \ \le\ 
-  p^{g} L^g
-  \ -\ 
-  {\sigma}_n^{\infty\rightarrow g}\
-  \ \ \ 
-$
-(linear system for $s_n^f$)
+(linear system for $$s_t^f$$)
+
+$$
+\sum_{f=1}^n (s_t^f \hat{\sigma}\_{slip,n}\^{f\rightarrow g}+ s_n^f \hat{\sigma}\_{open,n}\^{f\rightarrow g})
+\le p^g L^g \-\sigma_n\^{\infty\rightarrow g}\
+\ \ \ 
+$$
+
+(linear system for $$s_n^f$$)
 
 #### Displacement- and stress fields induced by far field stress and N fractures
 
-$
-{\bf u}\ =\ \sum_{f=1}^N\{s_t^{f}{\hat{\bf u}}_{slip}^{f}+s_n^{f}{\hat{\bf u}}_{open}^{f}\}\ +\ {\bf u}^\infty
-\ \ \ 
-$
+$$
+{\bf u}\ =\ \sum\_{f=1}^N\{s_t^{f}{\hat{\bf u}}\_{slip}^{f}+s_n^{f}{\hat{\bf u}}\_{open}^{f}\}\ +\ {\bf u}^\infty
+$$
+
 and
-$
-\ \ \ 
-{\bf \sigma}\ =\ \sum_{f=1}^N\{s_t^{f}{\hat{\bf \sigma}}_{slip}^{f}+s_n^{f}{\hat{\bf \sigma}}_{open}^{f}\}\ +\ {\bf \sigma}^\infty
-$
+
+$$
+\sigma=\sum_{f=1}^N\{s_t^{f}{\hat{\sigma}}\_{slip}^{f}+s_n^{f}{\hat{\sigma}}\_{open}^{f}\}\ +\ \sigma^\infty
+$$
 
 with far field displacement obtained from far field stress:
-- given: $\sigma_{ij}^\infty$
-- ansatz: $(u_1^\infty, u_2^\infty)^T\ =\ (a_{11}x_1\ +\ a_{12}x_2,\ a_{21}x_1\ +\ a_{22}x_2)^T$
+- given: $$\sigma_{ij}^\infty$$
+- ansatz: $$(u_1^\infty, u_2^\infty)^T\ =\ (a_{11}x_1\ +\ a_{12}x_2,\ a_{21}x_1\ +\ a_{22}x_2)^T$$
 - stress-strain relation: $\Rightarrow\ \ \ \lambda a_{kk}\delta_{ij}
 \ +\ 
 G\left(a_{ji}+a_{ij})\right)
-\ =\ \sigma^\infty_{ij}\ \ \ $(linear system for $a_{ij}$)
+\ =\ \sigma^\infty_{ij}\ \ \ $(linear system for $$a_{ij}$$)
 
 ## Installation
-The code is implemented in `FDBF.py`. For simpler visualization convert it pack to a Python notebook and use the ipywidgets.interact function.
+The code is implemented in `FDBF_Code.ipynb`. For simpler visualization it is a jupyter notebook.
 
 ## Usage
 
@@ -195,8 +194,8 @@ The code is implemented in `FDBF.py`. For simpler visualization convert it pack 
 
 ## Data Files
 
-- `FDBF.py`: Main code
-- `Data/*.csv`: Example of precomputed shear and opening basis functions for Lame1=6.3 GPa and Lame2=6.9 GPa and two different basis function sizes (L=8 and L=20).
+- `FDBF_Code.ipynb`: Main code, Jupyter Notebook
+- `Data/*.csv`: Example of precomputed shear and opening basis functions for Lame1=6.3 GPa and Lame2=6.9 GPa and basis function sizes of L=8.
 - `Data/Odling33.txt`: Example of fracture pattern testfile with format [Length, mid_x, mid_y, angle] (Example of paper).
 
 ## Dependencies
